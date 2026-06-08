@@ -1,0 +1,73 @@
+{
+    "name": "rekuest/laravel-artifact-deployer",
+    "description": "Artifact-based post-deploy runner for Laravel (secure unzip/extract + configurable artisan pipeline).",
+    "keywords": [
+        "rekuest",
+        "rekuest srl",
+        "laravel",
+        "deploy",
+        "deployment",
+        "post-deploy",
+        "artifact",
+        "ci-cd",
+        "release"
+    ],
+    "homepage": "https://github.com/rekuest/laravel-artifact-deployer",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rekuest Srl",
+            "homepage": "https://www.rekuest.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0|^12.0|^13.0",
+        "illuminate/console": "^11.0|^12.0|^13.0",
+        "illuminate/http": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
+        "larastan/larastan": "^2.0|^3.0",
+        "laravel/pint": "^1.0"
+    },
+    "suggest": {
+        "ext-zip": "Required for artifact.format = zip (ZipArchive).",
+        "ext-phar": "Required for artifact.format = targz (PharData, usually always present)."
+    },
+    "autoload": {
+        "psr-4": {
+            "Rekuest\\ArtifactDeployer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rekuest\\ArtifactDeployer\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rekuest\\ArtifactDeployer\\ArtifactDeployerServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
