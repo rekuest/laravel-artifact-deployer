@@ -50,7 +50,8 @@ return [
         'extract_to' => base_path(),
 
         // Paths/globs that the artifact may NEVER overwrite (protection whitelist).
-        'protected_paths' => ['.env', 'storage/', 'auth.json'],
+        // example: ['.env', 'storage/', 'auth.json']
+        'protected_paths' => [],
 
         // What to do with the artifact after a SUCCESSFUL deploy:
         //   'rename' -> rename adding a suffix (e.g. build_artifact.zip.deployed)
